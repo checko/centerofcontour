@@ -1,5 +1,4 @@
 import argparse
-import imutils
 import cv2
 
 ap = argparse.ArgumentParser()
@@ -20,8 +19,7 @@ thresh = cv2.threshold(blurred,60,255,cv2.THRESH_BINARY)[1]
 cv2.imshow('thresh',thresh)
 cv2.waitKey(0)
 
-cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-cnts = imutils.grab_contours(cnts)
+cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[0]
 
 for c in cnts:
     M = cv2.moments(c)
