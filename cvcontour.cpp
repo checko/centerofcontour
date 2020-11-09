@@ -16,10 +16,12 @@ int main(int argc, char** argv)
 	GaussianBlur(image,image,Size(5,5),0);
 	namedWindow("blur",CV_WINDOW_AUTOSIZE);
 	imshow("blur",image);
+	imwrite("blur.jpg",image);
 
 	threshold(image,image,60,255,CV_THRESH_BINARY);
 	namedWindow("thresh",CV_WINDOW_AUTOSIZE);
 	imshow("thresh",image);
+	imwrite("thresh.jpg",image);
 
 	vector<vector<Point>> contours;
 	vector<Vec4i> hierarchy;
@@ -43,6 +45,7 @@ int main(int argc, char** argv)
 	}
 	namedWindow("cont",CV_WINDOW_AUTOSIZE);
 	imshow("cont",srcimage);
+	imwrite("cont.jpg",srcimage);
 
 
 
